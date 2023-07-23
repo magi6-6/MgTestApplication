@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: ExceptionApp
+
+server:
+  port: 8080
+
