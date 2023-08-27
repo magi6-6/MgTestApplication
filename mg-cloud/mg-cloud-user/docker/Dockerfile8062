@@ -1,0 +1,7 @@
+FROM openjdk:8-jdk-alpine
+
+EXPOSE 8062
+
+ADD mg-cloud-user-1.0-SNAPSHOT.jar mg-cloud-user.jar
+
+ENTRYPOINT ["java", "-jar", "/mg-cloud-user.jar", "--spring.profiles.active=prod", "--server.port=8062"]
