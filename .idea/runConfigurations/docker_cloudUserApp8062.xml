@@ -1,0 +1,20 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="docker-cloudUserApp8062" type="docker-deploy" factoryName="dockerfile" singleton="false" server-name="Docker">
+    <deployment type="dockerfile">
+      <settings>
+        <option name="imageTag" value="dockeruserapp8062:1.0" />
+        <option name="containerName" value="docker-cloudUserApp8062" />
+        <option name="portBindings">
+          <list>
+            <DockerPortBindingImpl>
+              <option name="containerPort" value="8062" />
+              <option name="hostPort" value="8062" />
+            </DockerPortBindingImpl>
+          </list>
+        </option>
+        <option name="sourceFilePath" value="mg-cloud/mg-cloud-user/docker/Dockerfile8062" />
+      </settings>
+    </deployment>
+    <method v="2" />
+  </configuration>
+</component>

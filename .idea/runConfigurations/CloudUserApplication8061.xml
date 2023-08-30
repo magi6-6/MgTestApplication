@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="CloudUserApplication8061" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <module name="mg-cloud-user" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.mg.user.Application" />
+    <option name="VM_PARAMETERS" value="-Dserver.port=8061" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="CloudBusinessApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="mg-cloud-business" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.mg.business.Application" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
