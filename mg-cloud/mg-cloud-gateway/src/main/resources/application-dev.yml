@@ -1,0 +1,17 @@
+flag: gateway-devLocal
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: cloudBusiness
+          uri: lb://cloudBusiness
+          predicates:
+            - Path=/**
+        - id: cloudUser
+          uri: lb://cloudUser
+          predicates:
+            - Path=/**
