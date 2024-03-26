@@ -14,6 +14,7 @@
         <module>mg-cloud/mg-cloud-user</module>
         <module>mg-cloud/mg-cloud-business</module>
         <module>mg-cloud/mg-cloud-gateway</module>
+        <module>mg-json</module>
     </modules>
 
 
