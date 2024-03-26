@@ -15,6 +15,7 @@
         <module>mg-cloud/mg-cloud-business</module>
         <module>mg-cloud/mg-cloud-gateway</module>
         <module>mg-json</module>
+        <module>mg-socket</module>
     </modules>
 
 
