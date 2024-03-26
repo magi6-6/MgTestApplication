@@ -16,6 +16,7 @@
         <module>mg-cloud/mg-cloud-gateway</module>
         <module>mg-json</module>
         <module>mg-socket</module>
+        <module>mg-multithreading</module>
     </modules>
 
 
@@ -113,7 +114,7 @@
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
-                <version>3.8.1</version>
+                <version>4.13.2</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
