@@ -17,6 +17,7 @@
         <module>mg-json</module>
         <module>mg-socket</module>
         <module>mg-multithreading</module>
+        <module>mg-sharding-jdbc</module>
     </modules>
 
 
@@ -137,6 +138,23 @@
                 <version>${spring.cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>3.5.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>3.4.3</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>8.0.30</version>
             </dependency>
             <!--<dependency>
                 <groupId>com.alibaba.cloud</groupId>

@@ -1,0 +1,32 @@
+spring:
+  shardingsphere:
+    mode:
+      type: MEMORY
+    datasource:
+      names: server-order,server-user
+      server-order:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://192.168.233.129:3306/db_order?characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+        username: root
+        password: 123456
+      server-user:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://192.168.233.129:3306/db_user?characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+        username: root
+        password: 123456
+
+
+    rules:
+      sharding:
+        tables:
+          t_order:
+#            actual-data-nodes: server-order.t_order_$->{0..9}
+            actual-data-nodes: server-order.t_order
+          t_user:
+#            actual-data-nodes: server-user.t_user_$->{0..9}
+            actual-data-nodes: server-user.t_user
+    # 打印sql
+    props:
+      sql-show: true
