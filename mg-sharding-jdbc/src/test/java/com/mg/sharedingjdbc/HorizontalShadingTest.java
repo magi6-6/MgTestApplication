@@ -13,16 +13,22 @@ import org.springframework.transaction.annotation.Transactional;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
-public class VerticalShadingTest {
+public class HorizontalShadingTest {
     @Autowired
     private UserMapper userMapper;
     @Autowired
     private OrderMapper orderMapper;
 
     @Test
-    @Transactional
     public void testInsert() {
-        userMapper.insert(new User(null, "阿强", 21));
-        orderMapper.insert(new Order(null, "no001", 1L));
+        orderMapper.insert(new Order(null, "horizontalOrder0001", 1L));
+    }
+
+    @Test
+    public void testInsertOrderDbStrategy() {
+        for (int i = 4; i < 8; i++) {
+            orderMapper.insert(new Order(null, "horizontalOrder0001", i + 1L));
+        }
+
     }
 }

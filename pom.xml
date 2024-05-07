@@ -18,6 +18,7 @@
         <module>mg-socket</module>
         <module>mg-multithreading</module>
         <module>mg-sharding-jdbc</module>
+        <module>mg-jvm</module>
     </modules>
 
 

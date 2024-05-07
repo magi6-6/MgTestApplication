@@ -1,0 +1,61 @@
+# 基本配置
+spring:
+  shardingsphere:
+    mode:
+      type: MEMORY
+    datasource:
+      names: server-order0,server-order1,server-user
+      server-order0:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://192.168.233.129:3306/db_order0?characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+        username: root
+        password: 123456
+      server-order1:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://192.168.233.129:3306/db_order1?characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+        username: root
+        password: 123456
+      server-user:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        jdbc-url: jdbc:mysql://192.168.233.129:3306/db_user?characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+        username: root
+        password: 123456
+
+# 标准分片表配置,多个表逗号分割，支持inline表达式
+    rules:
+      sharding:
+        tables:
+          t_order:
+#            actual-data-nodes: server-order.t_order$->{0..9}
+#            actual-data-nodes: server-order0.t_order0,server-order1.t_order1,server-order0.t_order1,server-order1.t_order0
+            # inline表达式（笛卡尔积）
+#            actual-data-nodes: server-order$->{0..1}.t_order_$->{0..1}
+            actual-data-nodes: server-order$->{0..1}.t_order0
+            # 分库策略，缺省为默认分库策略
+            database-strategy:
+              standard:
+                sharding-column: user_id
+#                sharding-algorithm-name: alg_inline_userid
+                sharding-algorithm-name: alg_mod
+          t_user:
+#            actual-data-nodes: server-user.t_user_$->{0..9}
+            actual-data-nodes: server-user.t_user
+        sharding-algorithms:
+          # 行表达式分片算法
+          alg_inline_userid:
+            type: INLINE
+            props:
+              algorithm-expression: server-order$->{user_id % 2}
+          # 取模分片算法
+          alg_mod:
+            type: MOD
+            props:
+              sharding-count: 2
+
+
+    # 打印sql
+    props:
+      sql-show: true
