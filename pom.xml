@@ -19,6 +19,8 @@
         <module>mg-multithreading</module>
         <module>mg-sharding-jdbc</module>
         <module>mg-jvm</module>
+        <module>mg-daily-test</module>
+        <module>mg-flowable</module>
     </modules>
 
 
@@ -162,6 +164,13 @@
                 <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
                 <version>${alibaba.cloud.version}</version>
             </dependency>-->
+
+            <dependency>
+                <groupId>org.flowable</groupId>
+                <artifactId>flowable-spring-boot-starter</artifactId>
+                <version>6.4.2</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
